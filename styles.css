@@ -1,3 +1,4 @@
+
 /* ======= VARIABLES CSS ======= */
 :root {
     /* Colores */
@@ -264,12 +265,13 @@ section {
 
 .coffee {
     position: absolute;
-    top: 20px;
+    bottom: 0; /* Cambiado de top a bottom para mejor control */
     left: 0;
     width: 100%;
     height: 0;
     background-color: var(--secondary-color);
     animation: fill 2s infinite;
+    transition: height 0.3s ease-in-out;
 }
 
 @keyframes fill {
@@ -277,10 +279,10 @@ section {
         height: 0;
     }
     50% {
-        height: 60px;
+        height: 80%; /* Reducido para evitar desbordamiento */
     }
     100% {
-        height: 60px;
+        height: 80%;
     }
 }
 
@@ -580,9 +582,9 @@ section {
 
 .values {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 30px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .value-item {
@@ -599,7 +601,7 @@ section {
 }
 
 .value-item i {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 15px;
 }
@@ -608,6 +610,63 @@ section {
     font-size: 1.3rem;
     margin-bottom: 10px;
     color: var(--primary-color);
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Media Query para Tablet */
+@media screen and (min-width: 768px) {
+    .values {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .about-content {
+        gap: 60px;
+    }
+
+    .about-text {
+        padding-right: 20px;
+    }
+}
+
+/* Media Query para Desktop */
+@media screen and (min-width: 1200px) {
+    .about-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 80px;
+    }
+
+    .about-text {
+        flex: 0 0 60%;
+    }
+
+    .about-image {
+        flex: 0 0 40%;
+    }
+
+    .values {
+        margin-top: 60px;
+    }
+
+    .value-item {
+        padding: 30px;
+    }
+
+    .value-item i {
+        font-size: 3rem;
+    }
 }
 
 /* ======= LOCATION SECTION ======= */
@@ -1178,4 +1237,22 @@ input:focus, select:focus, textarea:focus {
     }
 
     .hamburger-menu.active .bar:nth-child(1) {
-        transform: rotate(4
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+}

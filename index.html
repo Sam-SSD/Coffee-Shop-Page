@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café de la Loma - Cafetería Artesanal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<!-- Cabecera -->
+<header class="header">
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="assets/logo.png" alt="Logo Café de la Loma" srcset="assets/logo.png 1x, assets/logo@2x.png 2x">
+        </div>
+
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#reservas">Reservas</a></li>
+            <li><a href="#galeria">Galería</a></li>
+        </ul>
+
+        <!-- Tema Oscuro/Claro -->
+        <div class="theme-toggle">
+            <button id="theme-button">
+                <i class="fas fa-moon"></i>
+                <span class="theme-text">Modo Oscuro</span>
+            </button>
+        </div>
+
+        <!-- Animación de Carga -->
+        <div class="loader-container">
+            <div class="coffee-cup">
+                <div class="coffee"></div>
+            </div>
+            <p>Preparando tu experiencia...</p>
+        </div>
+    </nav>
+</header>
+
+<!-- Sección Hero -->
+<section id="inicio" class="hero">
+    <div class="hero-content">
+        <h1>Café de la Loma</h1>
+        <p>Sabores auténticos, tradición artesanal</p>
+        <a href="#menu" class="btn-primary">Ver Menú</a>
+    </div>
+</section>
+
+<!-- Sección Menú -->
+<section id="menu" class="menu-section">
+    <div class="container">
+        <h2 class="section-title">Nuestro Menú</h2>
+        <div class="menu-tabs">
+            <button class="tab-btn active" data-category="cafe">Café</button>
+            <button class="tab-btn" data-category="postres">Postres</button>
+            <button class="tab-btn" data-category="desayunos">Desayunos</button>
+            <button class="tab-btn" data-category="especiales">Especiales</button>
+        </div>
+
+        <div class="menu-items" id="cafe">
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/cafe-espresso.jpg" alt="Espresso"
+                         srcset="assets/cafe-espresso.jpg 1x, assets/cafe-espresso@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Espresso</h3>
+                    <p>Nuestro espresso intenso hecho con granos de altura tostados artesanalmente.</p>
+                    <span class="precio">$35</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/cafe-latte.jpg" alt="Latte"
+                         srcset="assets/cafe-latte.jpg 1x, assets/cafe-latte@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Latte</h3>
+                    <p>Espresso con leche cremosa y un toque de canela.</p>
+                    <span class="precio">$45</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/cafe-capuccino.jpg" alt="Capuccino"
+                         srcset="assets/cafe-capuccino.jpg 1x, assets/cafe-capuccino@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Capuccino</h3>
+                    <p>La perfecta mezcla de espresso, leche vaporizada y espuma.</p>
+                    <span class="precio">$45</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/cafe-americano.jpg" alt="Americano"
+                         srcset="assets/cafe-americano.jpg 1x, assets/cafe-americano@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Americano</h3>
+                    <p>Espresso diluido con agua caliente manteniendo todo su sabor.</p>
+                    <span class="precio">$40</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-items hidden" id="postres">
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/pastel-chocolate.jpg" alt="Pastel de Chocolate"
+                         srcset="assets/pastel-chocolate.jpg 1x, assets/pastel-chocolate@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Pastel de Chocolate</h3>
+                    <p>Delicioso pastel casero con chocolate 70% cacao.</p>
+                    <span class="precio">$65</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/cheesecake.jpg" alt="Cheesecake"
+                         srcset="assets/cheesecake.jpg 1x, assets/cheesecake@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Cheesecake</h3>
+                    <p>Suave cheesecake con mermelada de frutos del bosque.</p>
+                    <span class="precio">$70</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/brownie.jpg" alt="Brownie"
+                         srcset="assets/brownie.jpg 1x, assets/brownie@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Brownie</h3>
+                    <p>Brownie húmedo con trozos de nuez y helado de vainilla.</p>
+                    <span class="precio">$55</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/galletas.jpg" alt="Galletas Artesanales"
+                         srcset="assets/galletas.jpg 1x, assets/galletas@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Galletas Artesanales</h3>
+                    <p>Variedad de galletas horneadas diariamente.</p>
+                    <span class="precio">$40</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-items hidden" id="desayunos">
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/chilaquiles.jpg" alt="Chilaquiles"
+                         srcset="assets/chilaquiles.jpg 1x, assets/chilaquiles@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Chilaquiles</h3>
+                    <p>Tortillas fritas bañadas en salsa verde o roja con huevo.</p>
+                    <span class="precio">$85</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/avocado-toast.jpg" alt="Avocado Toast"
+                         srcset="assets/avocado-toast.jpg 1x, assets/avocado-toast@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Avocado Toast</h3>
+                    <p>Pan artesanal con aguacate, huevo y especias.</p>
+                    <span class="precio">$75</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/huevos-rancheros.jpg" alt="Huevos Rancheros"
+                         srcset="assets/huevos-rancheros.jpg 1x, assets/huevos-rancheros@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Huevos Rancheros</h3>
+                    <p>Huevos fritos sobre tortilla con salsa casera y frijoles.</p>
+                    <span class="precio">$80</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/pancakes.jpg" alt="Pancakes"
+                         srcset="assets/pancakes.jpg 1x, assets/pancakes@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Pancakes</h3>
+                    <p>Torre de pancakes con miel de agave y frutos rojos.</p>
+                    <span class="precio">$70</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-items hidden" id="especiales">
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/cafe-especial.jpg" alt="Café de la Loma"
+                         srcset="assets/cafe-especial.jpg 1x, assets/cafe-especial@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Café de la Loma</h3>
+                    <p>Nuestra especialidad con espresso, licor de café y crema batida.</p>
+                    <span class="precio">$65</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/croissant-especial.jpg" alt="Croissant Especial"
+                         srcset="assets/croissant-especial.jpg 1x, assets/croissant-especial@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Croissant Especial</h3>
+                    <p>Croissant relleno de jamón serrano, queso brie y arúgula.</p>
+                    <span class="precio">$85</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/affogato.jpg" alt="Affogato"
+                         srcset="assets/affogato.jpg 1x, assets/affogato@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Affogato</h3>
+                    <p>Helado de vainilla ahogado en espresso caliente.</p>
+                    <span class="precio">$60</span>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img">
+                    <img src="assets/mocaccino.jpg" alt="Mocaccino Especial"
+                         srcset="assets/mocaccino.jpg 1x, assets/mocaccino@2x.jpg 2x">
+                </div>
+                <div class="menu-info">
+                    <h3>Mocaccino Especial</h3>
+                    <p>Café con chocolate belga, canela y espuma de leche.</p>
+                    <span class="precio">$55</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección Sobre Nosotros -->
+<section id="nosotros" class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title">Sobre Nosotros</h2>
+                <p>En Café de la Loma nace de la pasión por el café de calidad y el amor por las tradiciones
+                    artesanales. Desde 2015, hemos trabajado directamente con productores locales para garantizar granos
+                    de la más alta calidad, tostados artesanalmente para resaltar sus notas y aromas únicos.</p>
+                <p>Nuestra filosofía se basa en tres pilares: calidad excepcional, ambiente acogedor y servicio
+                    personalizado. Cada taza cuenta una historia, y queremos compartirla contigo.</p>
+                <div class="values">
+                    <div class="value-item">
+                        <i class="fas fa-coffee"></i>
+                        <h3>Calidad</h3>
+                        <p>Seleccionamos los mejores granos cultivados de manera sostenible.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Sostenibilidad</h3>
+                        <p>Comprometidos con prácticas respetuosas con el medio ambiente.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-heart"></i>
+                        <h3>Comunidad</h3>
+                        <p>Apoyamos a productores locales y creamos un espacio de encuentro.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="assets/about-us.jpg" alt="Nuestro equipo"
+                     srcset="assets/about-us.jpg 1x, assets/about-us@2x.jpg 2x">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección Ubicación y Horarios -->
+<section id="ubicacion" class="location-section">
+    <div class="container">
+        <h2 class="section-title">Ubicación y Horarios</h2>
+        <div class="location-content">
+            <div class="map-container">
+                <!-- Google Maps iframe (se reemplazará con la API) -->
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661150207411!2d-99.13539868509853!3d19.432608186876517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzU3LjQiTiA5OcKwMDcnNTkuNiJX!5e0!3m2!1ses!2smx!4v1623456789012!5m2!1ses!2smx"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="info-container">
+                <div class="address">
+                    <h3><i class="fas fa-map-marker-alt"></i> Dirección</h3>
+                    <p>Av. Montaña 123, Col. El Mirador</p>
+                    <p>Ciudad de México, CP 04500</p>
+                </div>
+                <div class="hours">
+                    <h3><i class="far fa-clock"></i> Horarios</h3>
+                    <ul>
+                        <li><span>Lunes - Viernes:</span> 7:00 AM - 9:00 PM</li>
+                        <li><span>Sábados:</span> 8:00 AM - 10:00 PM</li>
+                        <li><span>Domingos:</span> 9:00 AM - 8:00 PM</li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h3><i class="fas fa-phone-alt"></i> Contacto</h3>
+                    <p>Teléfono: (55) 1234-5678</p>
+                    <p>Email: hola@cafedelaloma.com</p>
+                    <div class="social-media">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección Formulario de Reservas -->
+<section id="reservas" class="reservations-section">
+    <div class="container">
+        <h2 class="section-title">Reserva tu Mesa</h2>
+        <form id="reservation-form" class="reservation-form">
+            <div class="form-group">
+                <label for="name">Nombre completo <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo electrónico <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Teléfono <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required>
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Fecha <span class="required">*</span></label>
+                    <input type="date" id="date" name="date" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Hora <span class="required">*</span></label>
+                    <input type="time" id="time" name="time" required>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="guests">Número de personas <span class="required">*</span></label>
+                <select id="guests" name="guests" required>
+                    <option value="">Selecciona...</option>
+                    <option value="1">1 persona</option>
+                    <option value="2">2 personas</option>
+                    <option value="3">3 personas</option>
+                    <option value="4">4 personas</option>
+                    <option value="5">5 personas</option>
+                    <option value="6+">6+ personas</option>
+                </select>
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Mensaje o solicitudes especiales</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <div class="form-group terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">Acepto la política de privacidad <span class="required">*</span></label>
+                <div class="error-message"></div>
+            </div>
+
+            <button type="submit" class="btn-primary">Enviar Reserva</button>
+
+            <div class="form-success">
+                <p>¡Tu reserva ha sido enviada con éxito! Te contactaremos pronto para confirmar.</p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Sección Galería -->
+<section id="galeria" class="gallery-section">
+    <div class="container">
+        <h2 class="section-title">Nuestra Galería</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="ambiente">
+                <img src="assets/gallery-1.jpg" alt="Interior de la cafetería"
+                     srcset="assets/gallery-1.jpg 1x, assets/gallery-1@2x.jpg 2x">
+                <div class="overlay">
+                    <span>Interior acogedor</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="productos">
+                <img src="assets/gallery-2.jpg" alt="Proceso de barista"
+                     srcset="assets/gallery-2.jpg 1x, assets/gallery-2@2x.jpg 2x">
+                <div class="overlay">
+                    <span>Arte del barista</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="productos">
+                <img src="assets/gallery-3.jpg" alt="Latte art"
+                     srcset="assets/gallery-3.jpg 1x, assets/gallery-3@2x.jpg 2x">
+                <div class="overlay">
+                    <span>Latte art</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="ambiente">
+                <img src="assets/gallery-4.jpg" alt="Terraza exterior"
+                     srcset="assets/gallery-4.jpg 1x, assets/gallery-4@2x.jpg 2x">
+                <div class="overlay">
+                    <span>Terraza exterior</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="productos">
+                <img src="assets/gallery-5.jpg" alt="Pasteles caseros"
+                     srcset="assets/gallery-5.jpg 1x, assets/gallery-5@2x.jpg 2x">
+                <div class="overlay">
+                    <span>Pasteles caseros</span>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="ambiente">
+                <img src="assets/gallery-6.jpg" alt="Rincón de lectura"
+                     srcset="assets/gallery-6.jpg 1x, assets/gallery-6@2x.jpg 2x">
+                <div class="overlay">
+                    <span>Rincón de lectura</span>
+                </div>
+            </div>
+        </div>
+        <!-- Lightbox -->
+        <div class="lightbox">
+            <span class="close-lightbox">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/logo.png" alt="Logo Café de la Loma"
+                     srcset="assets/logo.png 1x, assets/logo@2x.png 2x">
+                <p>Café de la Loma © 2025</p>
+                <p>Todos los derechos reservados</p>
+            </div>
+            <div class="footer-links">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                    <li><a href="#reservas">Reservas</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Montaña 123, CDMX</p>
+                <p><i class="fas fa-phone-alt"></i> (55) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> hola@cafedelaloma.com</p>
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Boletín</h3>
+                <p>Suscríbete para recibir ofertas especiales</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Diseñado con <i class="fas fa-heart"></i> por un desarrollador apasionado</p>
+            <p><a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Botón de volver arriba -->
+<button id="back-to-top" aria-label="Volver arriba">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- Scripts -->
+<script src="scripts.js"></script>
+</body>
+</html>

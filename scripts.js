@@ -1,15 +1,26 @@
 // ======= FUNCIONALIDAD GENERAL DEL SITIO =======
 
-// Esperar a que todo el contenido esté cargado
+/**
+ * Inicialización de la página
+ * Espera a que todo el contenido del DOM esté cargado antes de ejecutar el código
+ */
 document.addEventListener('DOMContentLoaded', function () {
-    // Ocultar el loader después de que todo se haya cargado
+    /**
+     * Gestión del Loader
+     * Muestra una animación de carga mientras se cargan todos los recursos
+     * Se oculta después de 1.5 segundos para asegurar una transición suave
+     */
     window.addEventListener('load', function () {
         setTimeout(function () {
             document.querySelector('.loader-container').classList.add('hidden');
         }, 1500); // Mostrar loader por 1.5 segundos
     });
 
-    // Funcionalidad del menú hamburguesa
+    /**
+     * Funcionalidad del Menú Hamburguesa
+     * Controla la apertura y cierre del menú en dispositivos móviles
+     * Alterna las clases 'active' para mostrar/ocultar el menú
+     */
     const hamburger = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
 
@@ -18,7 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
         navLinks.classList.toggle('active');
     });
 
-    // Cerrar menú móvil al hacer clic en un enlace
+    /**
+     * Cierre del Menú Móvil
+     * Cierra el menú cuando se hace clic en un enlace
+     * Mejora la experiencia de usuario en dispositivos móviles
+     */
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', function () {
             hamburger.classList.remove('active');
@@ -26,7 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Cambiar estilo del header al hacer scroll
+    /**
+     * Efecto de Scroll en el Header
+     * Cambia el estilo del header cuando se hace scroll
+     * Añade la clase 'scrolled' para modificar la apariencia
+     */
     window.addEventListener('scroll', function () {
         const header = document.querySelector('.header');
         if (window.scrollY > 100) {
@@ -35,7 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
             header.classList.remove('scrolled');
         }
 
-        // Mostrar/ocultar botón de volver arriba
+        /**
+         * Control del Botón "Volver Arriba"
+         * Muestra/oculta el botón según la posición del scroll
+         * Aparece cuando el usuario ha scrolleado más de 300px
+         */
         const backToTop = document.getElementById('back-to-top');
         if (window.scrollY > 300) {
             backToTop.classList.add('visible');
@@ -44,7 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Funcionalidad del botón volver arriba
+    /**
+     * Funcionalidad del Botón "Volver Arriba"
+     * Permite volver al inicio de la página con animación suave
+     * Utiliza scrollTo con behavior: 'smooth' para una transición fluida
+     */
     document.getElementById('back-to-top').addEventListener('click', function () {
         window.scrollTo({
             top: 0,
@@ -52,7 +79,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Selector de tema oscuro/claro
+    /**
+     * Sistema de Tema Oscuro/Claro
+     * Permite cambiar entre modo claro y oscuro
+     * Actualiza iconos y texto del botón según el tema actual
+     */
     const themeBtn = document.getElementById('theme-button');
     const themeIcon = themeBtn.querySelector('i');
     const themeText = themeBtn.querySelector('.theme-text');
@@ -75,7 +106,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Verificar si hay un tema guardado en localStorage
+    /**
+     * Persistencia del Tema
+     * Recupera el tema guardado en localStorage
+     * Aplica el tema guardado al cargar la página
+     */
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-theme');
@@ -86,6 +121,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ======= FUNCIONALIDAD DEL MENÚ DE PRODUCTOS =======
+    /**
+     * Sistema de Pestañas del Menú
+     * Permite cambiar entre diferentes categorías de productos
+     * Maneja la visibilidad de las secciones del menú
+     */
     const tabBtns = document.querySelectorAll('.tab-btn');
     const menuItems = document.querySelectorAll('.menu-items');
 
@@ -106,6 +146,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ======= FUNCIONALIDAD DE LA GALERÍA Y LIGHTBOX =======
+    /**
+     * Sistema de Galería y Lightbox
+     * Permite ver las imágenes en tamaño completo
+     * Incluye navegación entre imágenes y controles
+     */
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.querySelector('.lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -115,6 +160,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextBtn = document.querySelector('.lightbox-next');
     let currentIndex = 0;
 
+    /**
+     * Inicialización de la Galería
+     * Configura los eventos de clic para cada imagen
+     * Prepara el lightbox con la imagen seleccionada
+     */
     galleryItems.forEach((item, index) => {
         item.addEventListener('click', function () {
             currentIndex = index;
@@ -130,7 +180,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Cerrar lightbox
+    /**
+     * Cierre del Lightbox
+     * Permite cerrar el lightbox de diferentes maneras
+     * Restaura el scroll normal de la página
+     */
     closeLightbox.addEventListener('click', function () {
         lightbox.classList.remove('active');
         document.body.style.overflow = 'auto';
@@ -144,7 +198,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Navegar entre imágenes
+    /**
+     * Navegación en el Lightbox
+     * Permite navegar entre imágenes con botones
+     * Mantiene un índice circular de las imágenes
+     */
     prevBtn.addEventListener('click', function () {
         currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
         updateLightbox();
@@ -155,7 +213,11 @@ document.addEventListener('DOMContentLoaded', function () {
         updateLightbox();
     });
 
-    // Actualizar contenido del lightbox
+    /**
+     * Actualización del Lightbox
+     * Actualiza la imagen y el texto mostrado
+     * Mantiene sincronizados los elementos visuales
+     */
     function updateLightbox() {
         const imgSrc = galleryItems[currentIndex].querySelector('img').getAttribute('src');
         const imgAlt = galleryItems[currentIndex].querySelector('img').getAttribute('alt');
@@ -164,7 +226,11 @@ document.addEventListener('DOMContentLoaded', function () {
         lightboxCaption.textContent = imgAlt;
     }
 
-    // Navegar con teclado cuando el lightbox está activo
+    /**
+     * Navegación con Teclado
+     * Permite navegar en el lightbox usando las teclas de flecha
+     * Incluye soporte para Escape para cerrar el lightbox
+     */
     document.addEventListener('keydown', function (e) {
         if (!lightbox.classList.contains('active')) return;
 
@@ -181,6 +247,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ======= VALIDACIÓN DEL FORMULARIO DE RESERVAS =======
+    /**
+     * Sistema de Validación de Formulario
+     * Valida todos los campos del formulario de reservas
+     * Muestra mensajes de error apropiados
+     */
     const reservationForm = document.getElementById('reservation-form');
     const formSuccess = document.querySelector('.form-success');
 
@@ -195,6 +266,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let isValid = true;
 
+            /**
+             * Validación de Campos
+             * Verifica cada campo del formulario
+             */
             // Validar nombre
             const nameInput = document.getElementById('name');
             if (nameInput.value.trim() === '' || nameInput.value.length < 3) {
@@ -244,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 isValid = false;
             }
 
-            // Si el formulario es válido, mostrar mensaje de éxito
+            // Si todo es válido, mostrar mensaje de éxito
             if (isValid) {
                 reservationForm.reset();
                 formSuccess.style.display = 'block';
@@ -255,35 +330,48 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 5000);
             }
         });
-
-        // Función para mostrar errores
-        function showError(input, message) {
-            const formGroup = input.closest('.form-group');
-            formGroup.classList.add('error');
-            formGroup.querySelector('.error-message').textContent = message;
-        }
-
-        // Validar email con regex
-        function isValidEmail(email) {
-            const re = /^[a-zA-Z0-9_-]+\w[.]?[a-z0-9]+[@]\w+[.]\w{2,3}\w$/;
-            return re.test(email);
-        }
-
-        // Validar teléfono
-        function isValidPhone(phone) {
-            // Acepta formatos comunes de teléfono mexicano
-            const re = /^(\\+?52|0)?(1|5)?[0-9]{8,10}$/;
-            return re.test(phone.replace(/\\s/g, ''));
-        }
-
-        // Validar que la fecha no sea anterior a hoy
-        function isValidDate(date) {
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            const selectedDate = new Date(date);
-            selectedDate.setHours(0, 0, 0, 0);
-            return selectedDate >= today;
-        }
     }
 
+    /**
+     * Muestra un mensaje de error para un campo específico
+     * @param {HTMLElement} input - El campo que tiene el error
+     * @param {string} message - El mensaje de error a mostrar
+     */
+    function showError(input, message) {
+        const formGroup = input.closest('.form-group');
+        formGroup.classList.add('error');
+        const errorMessage = formGroup.querySelector('.error-message');
+        errorMessage.textContent = message;
+    }
+
+    /**
+     * Valida el formato de un email
+     * @param {string} email - El email a validar
+     * @returns {boolean} - true si el email es válido
+     */
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    /**
+     * Valida el formato de un número de teléfono
+     * @param {string} phone - El número de teléfono a validar
+     * @returns {boolean} - true si el número es válido
+     */
+    function isValidPhone(phone) {
+        const phoneRegex = /^\+?[\d\s-]{10,}$/;
+        return phoneRegex.test(phone);
+    }
+
+    /**
+     * Valida que la fecha sea futura
+     * @param {string} date - La fecha a validar
+     * @returns {boolean} - true si la fecha es válida
+     */
+    function isValidDate(date) {
+        const selectedDate = new Date(date);
+        const today = new Date();
+        return selectedDate >= today;
+    }
 });

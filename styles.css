@@ -1,6 +1,28 @@
+/* 
+    Archivo: styles.css
+    Descripción: Estilos principales para la página web de Café de la Loma
+    Autor: [Tu nombre]
+    Fecha: [Fecha actual]
+*/
+
 /* ======= VARIABLES CSS ======= */
 :root {
-    /* Colores */
+    /* 
+        PALETA DE COLORES
+        Define los colores principales y secundarios de la aplicación
+        - primary-color: Color principal de la marca (marrón café)
+        - secondary-color: Color secundario para acentos (marrón claro)
+        - accent-color: Color de acento para detalles (marrón dorado)
+        - bg-color: Color de fondo principal (blanco)
+        - text-color: Color del texto principal (gris oscuro)
+        - light-bg: Color de fondo claro para secciones alternas
+        - dark-bg: Color de fondo oscuro
+        - card-bg: Color de fondo para tarjetas
+        - border-color: Color para bordes
+        - success-color: Color para mensajes de éxito (verde)
+        - error-color: Color para mensajes de error (rojo)
+        - footer-bg: Color de fondo del pie de página (marrón oscuro)
+    */
     --primary-color: #6b4226;
     --secondary-color: #a67c52;
     --accent-color: #d4a373;
@@ -14,30 +36,62 @@
     --error-color: #dc3545;
     --footer-bg: #2c1810;
 
-    /* Fuentes */
+    /* 
+        TIPOGRAFÍA
+        Define las fuentes utilizadas en la aplicación
+        - heading-font: Playfair Display para títulos (elegante y clásica)
+        - body-font: Poppins para el texto del cuerpo (moderna y legible)
+    */
     --heading-font: 'Playfair Display', serif;
     --body-font: 'Poppins', sans-serif;
 
-    /* Tamaños */
+    /* 
+        TAMAÑOS DE FUENTE
+        Define los tamaños de texto para diferentes elementos
+        - h1-size: Tamaño para títulos principales (3.5rem)
+        - h2-size: Tamaño para subtítulos (2.5rem)
+        - h3-size: Tamaño para títulos de sección (1.75rem)
+        - normal-size: Tamaño de texto normal (1rem)
+        - small-size: Tamaño de texto pequeño (0.875rem)
+    */
     --h1-size: 3.5rem;
     --h2-size: 2.5rem;
     --h3-size: 1.75rem;
     --normal-size: 1rem;
     --small-size: 0.875rem;
 
-    /* Espaciado */
+    /* 
+        ESPACIADO
+        Define los márgenes y padding consistentes
+        - section-spacing: Espacio entre secciones (6rem)
+        - element-spacing: Espacio entre elementos (2rem)
+    */
     --section-spacing: 6rem;
     --element-spacing: 2rem;
 
-    /* Transiciones */
+    /* 
+        TRANSICIONES
+        Define las animaciones y transiciones
+        - transition: Transición general para elementos (0.3s ease-in-out)
+    */
     --transition: all 0.3s ease-in-out;
 
-    /* Sombras */
+    /* 
+        SOMBRAS
+        Define los efectos de sombra para elementos
+        - card-shadow: Sombra para tarjetas (suave)
+        - hover-shadow: Sombra para efectos hover (más pronunciada)
+    */
     --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Modo oscuro */
+/* 
+    MODO OSCURO
+    Define los colores y estilos para el tema oscuro
+    Se activa cuando el atributo data-theme="dark" está presente
+    Ajusta los colores para mantener el contraste y la legibilidad
+*/
 [data-theme="dark"] {
     --primary-color: #8b5e3c;
     --secondary-color: #c89b70;
@@ -52,16 +106,31 @@
 }
 
 /* ======= ESTILOS GLOBALES ======= */
+/* 
+    Reset básico y estilos globales
+    Elimina márgenes y padding por defecto
+    Aplica box-sizing border-box a todos los elementos
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 
+    Configuración del scroll suave
+    Permite una transición suave al hacer scroll a secciones
+    Mejora la experiencia de usuario en la navegación
+*/
 html {
     scroll-behavior: smooth;
 }
 
+/* 
+    Estilos base del cuerpo
+    Define la fuente, tamaño, color y fondo por defecto
+    Establece el line-height para mejor legibilidad
+*/
 body {
     font-family: var(--body-font);
     font-size: var(--normal-size);
@@ -72,6 +141,11 @@ body {
     overflow-x: hidden;
 }
 
+/* 
+    Estilos para encabezados
+    Define la apariencia de todos los niveles de títulos
+    Utiliza la fuente de encabezado y ajusta el peso
+*/
 h1, h2, h3, h4, h5, h5 {
     font-family: var(--heading-font);
     font-weight: 700;
@@ -79,6 +153,7 @@ h1, h2, h3, h4, h5, h5 {
     margin-bottom: 1rem;
 }
 
+/* Tamaños específicos para cada nivel de encabezado */
 h1 {
     font-size: var(--h1-size);
 }
@@ -91,22 +166,38 @@ h3 {
     font-size: var(--h3-size);
 }
 
+/* 
+    Estilos para enlaces
+    Define la apariencia y comportamiento de los enlaces
+    Incluye transición suave para efectos hover
+*/
 a {
     text-decoration: none;
     color: var(--primary-color);
     transition: var(--transition);
 }
 
+/* Efecto hover para enlaces */
 a:hover {
     color: var(--accent-color);
 }
 
+/* 
+    Estilos para imágenes
+    Asegura que las imágenes sean responsivas
+    Mantiene la proporción de aspecto
+*/
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
+/* 
+    Contenedor principal
+    Define el ancho máximo y centrado del contenido
+    Añade padding horizontal para espaciado
+*/
 .container {
     width: 90%;
     max-width: 1200px;
@@ -114,10 +205,20 @@ img {
     padding: 0 15px;
 }
 
+/* 
+    Espaciado de secciones
+    Define el padding vertical para cada sección
+    Mantiene consistencia en el espaciado
+*/
 section {
     padding: calc(var(--section-spacing) / 2) 0;
 }
 
+/* 
+    Estilos para títulos de sección
+    Define la apariencia de los títulos principales de sección
+    Incluye alineación y color específico
+*/
 .section-title {
     text-align: center;
     margin-bottom: var(--element-spacing);
@@ -125,6 +226,11 @@ section {
     color: var(--primary-color);
 }
 
+/* 
+    Línea decorativa bajo títulos de sección
+    Crea un elemento decorativo después del título
+    Añade un toque visual distintivo
+*/
 .section-title::after {
     content: '';
     display: block;
@@ -134,6 +240,11 @@ section {
     margin: 0.5rem auto 0;
 }
 
+/* 
+    Estilos para botones primarios
+    Define la apariencia de los botones principales
+    Incluye efectos hover y transiciones
+*/
 .btn-primary {
     display: inline-block;
     padding: 12px 30px;
@@ -149,6 +260,10 @@ section {
     cursor: pointer;
 }
 
+/* 
+    Efecto hover para botones primarios
+    Define la apariencia cuando el usuario pasa el mouse
+*/
 .btn-primary:hover {
     background-color: var(--secondary-color);
     color: white;
@@ -157,6 +272,10 @@ section {
 }
 
 /* ======= TEMA OSCURO/CLARO ======= */
+/* 
+    Barra de navegación
+    Define el layout y alineación de los elementos
+*/
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -164,11 +283,19 @@ section {
     padding: 0 20px;
 }
 
+/* 
+    Contenedor del selector de tema
+    Posiciona el botón de cambio de tema
+*/
 .theme-toggle {
-    margin-left: auto; /* Empuja el elemento hacia la derecha */
+    margin-left: auto;
     padding-left: 20px;
 }
 
+/* 
+    Botón de cambio de tema
+    Define la apariencia del botón de tema
+*/
 #theme-button {
     display: flex;
     align-items: center;
@@ -181,21 +308,33 @@ section {
     transition: 0.3s;
 }
 
+/* 
+    Icono del botón de tema
+    Define el tamaño del icono
+*/
 #theme-button i {
     font-size: 16px;
 }
 
+/* 
+    Texto del botón de tema
+    Oculto por defecto en móviles
+*/
 .theme-text {
     display: none;
 }
 
+/* 
+    Media queries para tablets y escritorio
+    Ajusta el diseño para pantallas más grandes
+*/
 @media screen and (min-width: 768px) {
     .navbar {
         gap: 20px;
     }
 
     .nav-links {
-        margin-right: auto; /* Empuja el tema toggle hacia la derecha */
+        margin-right: auto;
     }
 
     .theme-text {
@@ -204,6 +343,10 @@ section {
     }
 }
 
+/* 
+    Media queries para pantallas grandes
+    Ajustes adicionales para pantallas de escritorio
+*/
 @media screen and (min-width: 1200px) {
     #theme-button {
         padding: 10px 20px;
@@ -219,6 +362,10 @@ section {
 }
 
 /* ======= LOADER ANIMACIÓN ======= */
+/* 
+    Contenedor del loader
+    Define el área y posición del loader de carga
+*/
 .loader-container {
     position: fixed;
     top: 0;
@@ -234,11 +381,19 @@ section {
     transition: opacity 0.5s, visibility 0.5s;
 }
 
+/* 
+    Estado oculto del loader
+    Se aplica cuando la página ha cargado
+*/
 .loader-container.hidden {
     opacity: 0;
     visibility: hidden;
 }
 
+/* 
+    Taza de café animada
+    Define la apariencia de la taza de café en el loader
+*/
 .coffee-cup {
     width: 80px;
     height: 80px;
@@ -317,6 +472,11 @@ section {
 }
 
 /* ======= HEADER ======= */
+/* 
+    Estilos para el Header
+    Define la apariencia y comportamiento del encabezado
+    Incluye efectos de scroll y transiciones
+*/
 .header {
     position: fixed;
     top: 0;
@@ -328,40 +488,75 @@ section {
     transition: var(--transition);
 }
 
+/* 
+    Efecto de scroll en el header
+    Modifica la apariencia cuando se hace scroll
+    Reduce el tamaño y ajusta la sombra
+*/
 .header.scrolled {
     background-color: var(--bg-color);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
 }
 
+/* 
+    Contenedor del header
+    Centra el contenido y establece el layout
+*/
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 15px;
 }
 
+/* 
+    Estilos para el logo
+    Define el tamaño y comportamiento del logo
+*/
 .logo {
     max-width: 150px;
 }
 
+/* 
+    Imagen del logo
+    Ajusta el tamaño y la transición
+*/
 .logo img {
     max-height: 60px;
     transition: var(--transition);
 }
 
+/* 
+    Logo en modo scroll
+    Reduce el tamaño del logo al hacer scroll
+*/
 .header.scrolled .logo img {
     max-height: 50px;
 }
 
+/* 
+    Enlaces de navegación
+    Define el layout y estilo de los enlaces
+*/
 .nav-links {
     display: flex;
     list-style: none;
 }
 
+/* 
+    Elementos de la navegación
+    Añade espaciado entre elementos
+*/
 .nav-links li {
     margin: 0 15px;
 }
 
+/* 
+    Enlaces de navegación
+    Define el estilo y comportamiento de los enlaces
+    Incluye efectos hover y transiciones
+*/
 .nav-links a {
     color: var(--text-color);
     font-weight: 500;
@@ -370,6 +565,10 @@ section {
     position: relative;
 }
 
+/* 
+    Efecto de subrayado en enlaces
+    Crea una línea que aparece al hacer hover
+*/
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -381,17 +580,30 @@ section {
     transition: var(--transition);
 }
 
+/* 
+    Efecto hover en enlaces
+    Muestra la línea de subrayado
+*/
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
 }
 
+/* 
+    Menú hamburguesa
+    Define el estilo del botón de menú móvil
+    Se muestra solo en dispositivos móviles
+*/
 .hamburger-menu {
     display: none;
     flex-direction: column;
     cursor: pointer;
 }
 
+/* 
+    Barras del menú hamburguesa
+    Define el estilo de las tres líneas
+*/
 .bar {
     width: 30px;
     height: 3px;
@@ -402,6 +614,11 @@ section {
 }
 
 /* ======= HERO SECTION ======= */
+/* 
+    Sección Hero
+    Define el estilo de la sección principal
+    Incluye imagen de fondo y overlay
+*/
 .hero {
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/hero-bg.jpg');
@@ -415,11 +632,20 @@ section {
     padding: 0;
 }
 
+/* 
+    Contenido del Hero
+    Centra y estiliza el contenido principal
+*/
 .hero-content {
     max-width: 800px;
     padding: 0 20px;
 }
 
+/* 
+    Título del Hero
+    Define el estilo del título principal
+    Incluye animación de entrada
+*/
 .hero h1 {
     font-size: calc(var(--h1-size) * 1.2);
     margin-bottom: 20px;
@@ -429,6 +655,11 @@ section {
     animation: fadeIn 1s forwards 0.5s;
 }
 
+/* 
+    Subtítulo del Hero
+    Define el estilo del texto descriptivo
+    Incluye animación de entrada
+*/
 .hero p {
     font-size: 1.5rem;
     margin-bottom: 30px;
@@ -438,12 +669,21 @@ section {
     animation: fadeIn 1s forwards 0.8s;
 }
 
+/* 
+    Botón del Hero
+    Define el estilo del botón principal
+    Incluye animación de entrada
+*/
 .hero .btn-primary {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 1s forwards 1.1s;
 }
 
+/* 
+    Animación de entrada
+    Define la animación para elementos del hero
+*/
 @keyframes fadeIn {
     to {
         opacity: 1;
@@ -452,12 +692,22 @@ section {
 }
 
 /* ======= MENU SECTION ======= */
+/* 
+    Sección de Menú
+    Define el estilo de la sección de productos
+    Incluye pestañas y tarjetas de productos
+*/
 .menu-section {
     background-color: var(--light-bg);
     padding-top: var(--section-spacing);
     padding-bottom: var(--section-spacing);
 }
 
+/* 
+    Pestañas del Menú
+    Define el estilo de las pestañas de categorías
+    Incluye layout y efectos hover
+*/
 .menu-tabs {
     display: flex;
     justify-content: center;
@@ -466,6 +716,11 @@ section {
     gap: 10px;
 }
 
+/* 
+    Botones de Pestaña
+    Define el estilo de los botones de categoría
+    Incluye estados activo y hover
+*/
 .tab-btn {
     padding: 10px 20px;
     background-color: transparent;
@@ -478,12 +733,21 @@ section {
     transition: var(--transition);
 }
 
+/* 
+    Estados de los Botones de Pestaña
+    Define los estilos para estados activo y hover
+*/
 .tab-btn:hover,
 .tab-btn.active {
     background-color: var(--primary-color);
     color: white;
 }
 
+/* 
+    Contenedor de Items del Menú
+    Define el layout de las tarjetas de productos
+    Utiliza grid para una disposición responsiva
+*/
 .menu-items {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -492,11 +756,20 @@ section {
     transition: var(--transition);
 }
 
+/* 
+    Estado Oculto de Items
+    Oculta las secciones de menú no activas
+*/
 .menu-items.hidden {
     display: none;
     opacity: 0;
 }
 
+/* 
+    Tarjetas de Producto
+    Define el estilo de las tarjetas individuales
+    Incluye efectos hover y sombras
+*/
 .menu-card {
     background-color: var(--card-bg);
     border-radius: 10px;
@@ -505,16 +778,28 @@ section {
     transition: var(--transition);
 }
 
+/* 
+    Efecto Hover en Tarjetas
+    Eleva la tarjeta y ajusta la sombra
+*/
 .menu-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--hover-shadow);
 }
 
+/* 
+    Contenedor de Imagen
+    Define el estilo del contenedor de imagen
+*/
 .menu-img {
     height: 200px;
     overflow: hidden;
 }
 
+/* 
+    Imágenes de Producto
+    Ajusta el tamaño y la transición
+*/
 .menu-img img {
     width: 100%;
     height: 100%;
@@ -522,25 +807,46 @@ section {
     transition: var(--transition);
 }
 
+/* 
+    Efecto Hover en Imágenes
+    Aplica zoom suave a la imagen
+*/
 .menu-card:hover .menu-img img {
     transform: scale(1.1);
 }
 
+/* 
+    Información del Producto
+    Define el estilo del contenido de la tarjeta
+*/
 .menu-info {
     padding: 20px;
 }
 
+/* 
+    Título del Producto
+    Define el estilo del nombre del producto
+*/
 .menu-info h3 {
     color: var(--primary-color);
     margin-bottom: 10px;
 }
 
+/* 
+    Descripción del Producto
+    Define el estilo del texto descriptivo
+*/
 .menu-info p {
     color: var(--text-color);
     margin-bottom: 15px;
     font-size: 0.95rem;
 }
 
+/* 
+    Precio del Producto
+    Define el estilo del precio
+    Incluye formato y color distintivo
+*/
 .precio {
     display: inline-block;
     background-color: var(--accent-color);
@@ -669,12 +975,22 @@ section {
 }
 
 /* ======= LOCATION SECTION ======= */
+/* 
+    Sección de Ubicación
+    Define el estilo de la sección de ubicación
+    Incluye mapa y detalles de contacto
+*/
 .location-section {
     background-color: var(--light-bg);
     padding-top: var(--section-spacing);
     padding-bottom: var(--section-spacing);
 }
 
+/* 
+    Contenido de Ubicación
+    Define el layout de la sección
+    Utiliza grid para disposición de dos columnas
+*/
 .location-content {
     display: flex;
     gap: 40px;
@@ -769,6 +1085,11 @@ section {
     padding-bottom: var(--section-spacing);
 }
 
+/* 
+    Formulario de Reserva
+    Define el estilo del formulario
+    Incluye ancho máximo y centrado
+*/
 .reservation-form {
     max-width: 800px;
     margin: 0 auto;
@@ -778,6 +1099,11 @@ section {
     box-shadow: var(--card-shadow);
 }
 
+/* 
+    Grupo de Campos
+    Define el estilo de los grupos de campos
+    Incluye espaciado y layout
+*/
 .form-group {
     margin-bottom: 25px;
 }
@@ -992,12 +1318,22 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* ======= FOOTER ======= */
+/* 
+    Pie de Página
+    Define el estilo del footer
+    Incluye fondo y espaciado
+*/
 .footer {
     background-color: var(--footer-bg);
     color: white;
     padding: 60px 0 20px;
 }
 
+/* 
+    Contenido del Footer
+    Define el layout del footer
+    Utiliza grid para disposición responsiva
+*/
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1040,16 +1376,31 @@ input:focus, select:focus, textarea:focus {
     list-style: none;
 }
 
+/* 
+    Items de Enlaces
+    Define el estilo de cada enlace
+    Incluye color y transición
+*/
 .footer-links li {
     margin-bottom: 10px;
 }
 
+/* 
+    Enlaces del Footer
+    Define el estilo de los enlaces
+    Incluye color y efectos hover
+*/
 .footer-links a {
     color: white;
     opacity: 0.8;
     transition: var(--transition);
 }
 
+/* 
+    Efecto Hover en Enlaces
+    Define el estilo al pasar el mouse
+    Incluye color y subrayado
+*/
 .footer-links a:hover {
     opacity: 1;
     color: var(--accent-color);

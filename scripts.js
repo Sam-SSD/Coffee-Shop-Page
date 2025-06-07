@@ -131,17 +131,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     tabBtns.forEach(btn => {
         btn.addEventListener('click', function () {
-            // Quitar la clase activa de todos los botones
             tabBtns.forEach(btn => btn.classList.remove('active'));
-            // Añadir clase activa al botón clicado
             this.classList.add('active');
 
-            // Ocultar todos los menús
-            menuItems.forEach(item => item.classList.add('hidden'));
-
-            // Mostrar el menú correspondiente
+            const currentMenu = Array.from(menuItems).find(item => !item.classList.contains('hidden'));
             const targetMenu = document.getElementById(this.getAttribute('data-category'));
-            targetMenu.classList.remove('hidden');
+
+            if (currentMenu === targetMenu) return;
+
+            if (currentMenu) {
+                currentMenu.classList.add('fade-slide-out');
+                setTimeout(() => {
+                    currentMenu.classList.add('hidden');
+                    currentMenu.classList.remove('fade-slide-out');
+
+                    // Mostrar y animar fade-slide-in del nuevo menú
+                    targetMenu.classList.remove('hidden');
+                    targetMenu.classList.add('fade-slide-in');
+                    setTimeout(() => {
+                        targetMenu.classList.remove('fade-slide-in');
+                    }, 500); // Duración igual a la transición CSS
+                }, 500); // Duración igual a la transición CSS
+            } else {
+                targetMenu.classList.remove('hidden');
+                targetMenu.classList.add('fade-slide-in');
+                setTimeout(() => {
+                    targetMenu.classList.remove('fade-slide-in');
+                }, 500);
+            }
         });
     });
 

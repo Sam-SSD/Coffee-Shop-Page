@@ -753,16 +753,34 @@ section {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     opacity: 1;
-    transition: var(--transition);
+    visibility: visible;
+    transform: translateX(0);
+    transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1), visibility 0.5s;
+    position: relative;
+    z-index: 1;
 }
 
-/* 
-    Estado Oculto de Items
-    Oculta las secciones de menú no activas
-*/
-.menu-items.hidden {
-    display: none;
+.menu-items.fade-slide-out {
     opacity: 0;
+    visibility: hidden;
+    transform: translateX(-40px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.menu-items.fade-slide-in {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.menu-items.hidden {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateX(-40px) !important;
 }
 
 /* 
@@ -1605,4 +1623,34 @@ input:focus, select:focus, textarea:focus {
     .nav-links a {
         font-size: 1.2rem;
     }
+}
+
+/* Animación escalonada para las tarjetas del menú */
+.menu-items.fade-slide-in .menu-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    animation: menuCardFadeIn 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.menu-items.fade-slide-in .menu-card:nth-child(1) { animation-delay: 0.08s; }
+.menu-items.fade-slide-in .menu-card:nth-child(2) { animation-delay: 0.16s; }
+.menu-items.fade-slide-in .menu-card:nth-child(3) { animation-delay: 0.24s; }
+.menu-items.fade-slide-in .menu-card:nth-child(4) { animation-delay: 0.32s; }
+.menu-items.fade-slide-in .menu-card:nth-child(5) { animation-delay: 0.40s; }
+.menu-items.fade-slide-in .menu-card:nth-child(6) { animation-delay: 0.48s; }
+
+@keyframes menuCardFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Icono del botón de tema: blanco en modo oscuro */
+[data-theme="dark"] #theme-button i.fa-sun {
+    color: #fff;
+}
+
+#theme-button i.fa-sun {
+    color: #6b4226; /* color café por defecto para modo claro */
 }
